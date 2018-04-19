@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+<meta name="description"  content=";"/>
+<title>Présentation | Banque Populaire de Mauritanie </title>
+<meta property="og:title" content="Présentation | Banque Populaire de Mauritanie "/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="http://www.bpm.mr/Fr/static/fr/image/gif/banque_populaire_mauritanie.gif"/>
+<meta property="og:url" content="http://www.bpm.mr/Fr/presentation_11_267"/>
+<meta property="og:site_name" content="Banque Populaire de Mauritanie "/>
+<meta property="og:description" content=""/>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,700,900' rel='stylesheet' type='text/css' />
+
+<link type="text/css" rel="stylesheet"  href="static/fr/css/reset.css" />
+<link type="text/css" rel="stylesheet"  href="static/fr/css/site.css" />
+<!--<link rel="stylesheet" href="static/fr/css/flexslider.css" type="text/css" media="screen" />-->
+
+<link rel="shortcut icon" type="image/png" href="static/image/png/fav.png" />
+<link type="text/css" rel="stylesheet"  href="static/fr/datepicker/themes/base/ui.all.css" />
+<link rel="stylesheet" href="static/fr/css/prettyPhoto.css" type="text/css" media="all"  charset="utf-8"  /><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="static/js/jquery.min.js"></script> -->
+
+<script type="text/javascript" src="static/fr/js/functions.js"></script>
+<script src="static/fr/jqtransformplugin/jquery.jqtransform.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="static/fr/player/js/jquery.transform2d.js"></script>
+<script type="text/javascript" src="static/fr/player/js/jquery.grab.js"></script>
+<script type="text/javascript" src="static/fr/player/js/jquery.jplayer.js"></script>
+<script type="text/javascript" src="static/fr/player/js/mod.csstransforms.min.js"></script>
+<script type="text/javascript" src="static/fr/js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="static/fr/js/jquery.flexslider.js"></script>
+
+<script src="static/fr/js/jquery.validationEngine.js" type="text/javascript"></script>
+<script src="static/fr/js/jquery.validationEngine-fr.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8">
+		// Can also be used with $(document).ready()
+		$(window).load(function() {
+		  $('.flexslider').flexslider({
+		    animation: "slide"
+		  });});
+		
+</script>
+<script type="text/javascript" charset="utf-8">
+var isclicked=false;
+  $(document).ready(function(){
+	  
+    $("a[rel^='prettyPhoto']").prettyPhoto();
+  });
+</script>
+<script type="text/javascript" >
+var lecteurMedia = null;
+
+jQuery(document).ready(function(){
+	
+	var urlAudio = $('ul.slides li:eq(0)').attr('link-slide');
+
+	if(urlAudio!='#?')	{		
+					$('#audio_player').show();		
+	
+					}else{
+						$('#audio_player').hide();
+					}
+					
+		
+					
+					
+					
+	/*			lecteurMedia  = new CirclePlayer("#jquery_jplayer_2",
+			{
+				m4a:urlAudio,
+				oga:""
+			}, {
+				cssSelectorAncestor: "#cp_container_2"
+			}
+			);*/
+			
+			
+			
+	/*		$( "input" ).on( "click", function() {
+			alert( $( "input:checked" ).val() + " is checked!" );
+			});*/
+			
+	$("#frm_newsletter").validationEngine('attach', {
+		
+			onValidationComplete: function(form, status){
+				$('div.frm_newsletterformError').remove();
+				if(status == true){
+					var newsletter	=	$('input[name=newsletter]').val();
+					$.ajax({
+						type: 'POST',
+						url: 'valide_newsletter.php',
+						data: {newsletter:newsletter},
+						dataType:"json",
+						success: function(result){
+							if(result.jsonValidateReturn[0]=="true"){
+								$('#frm_newsletter').validationEngine('showPrompt', result.jsonValidateReturn[2], 'pass')
+								$('#frm_newsletter').find('input[name=newsletter]').attr('value','');
+							}else{
+								$('#frm_newsletter').validationEngine('showPrompt', result.jsonValidateReturn[2], 'text');
+								$('#frm_newsletter').find('input[name=newsletter]').attr('value','');
+							}
+						},
+						error: function(xhr, ajaxOptions, thrownError){
+								$('#frm_newsletter').validationEngine('showPrompt', 'Merci de réessayer pluts tard', 'text');
+								$('#frm_newsletter').find('input[name=newsletter]').attr('value','');
+						} 
+					});
+				}
+			}
+	});			
+});
+</script>
+<script type="text/javascript" >
+$(document).ready(function(){
+	check_mineur();
+	$('.frm').jqTransform();	
+});
+</script>
+<script type="text/javascript" src="static/fr/js/easySlider1.5.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	$("#id_footer_bottom").removeClass("bottom_footer_fixed");
+	$(window).scroll(function(){
+		if ($(window).width()>750)
+		{
+				if($(window).scrollTop()=="0"){
+				
+				$("#id_footer_bottom").fadeOut("slow",function(){$("#id_footer_bottom").removeClass("bottom_footer_fixed");});
+				}else{
+				$("#id_footer_bottom").addClass("bottom_footer_fixed");
+				$("#id_footer_bottom").fadeIn("slow");
+				}
+	}else{
+		$("#id_footer_bottom").hide()
+		}
+				});
+			
+});
+</script>
+<script type="text/javascript">
+var heure_now = '00';
+var minut_now = '00';
+var secnd_now = '00';
+var heure_now = 16;
+var minut_now = 48;
+var secnd_now = 45;
+function affiche_heure(){
+	var heure_str;
+	window.setTimeout( "affiche_heure()", 1000 );
+	secnd_now++;
+	if(secnd_now>=60){	
+		secnd_now=0;
+		minut_now++;
+		if(minut_now>=60){
+			heure_now++;
+			minut_now = 0;
+			if(heure_now>=24){
+				history.go(0);
+			}
+		}
+	}
+	heure_str="";
+	if(heure_now<10)
+		heure_str=heure_str+"0"+heure_now+":";
+	else
+		heure_str=heure_str+heure_now+":";
+	if(minut_now<10)
+		heure_str=heure_str+"0"+minut_now+":";
+	else
+		heure_str=heure_str+minut_now+":";
+	if(secnd_now<10)
+		heure_str=heure_str+"0"+secnd_now;
+	else
+		heure_str=heure_str+secnd_now;
+	document.getElementById("heure").innerHTML=heure_str;}
+$(document).ready(function(){
+			
+		//affiche_heure();
+		
+	});	
+	
+	function get_play_sound(link_p){
+		if(link_p!="#?"){
+			$('#audio_player').show();
+			
+	   }else{
+			$('#audio_player').hide();
+		}
+
+		
+		$('#jquery_jplayer_2').jPlayer('setMedia', {
+				mp3:link_p
+		   });
+		   
+/*		   
+		   $("#jquery_jplayer_2").jPlayer({
+				ready: function () {
+				$(this).jPlayer("setMedia", {
+					mp3:link_p
+				});
+				},
+				swfPath: "js",
+				supplied: "mp3",
+				wmode: "window",
+				smoothPlayBar: true,
+				keyEnabled: true
+			});*/
+		   
+	}
+		
+	function convertir_zakat  (id){
+		var typeAction_zakat 	  = "result_convertir";
+		var montant_z 	  = $("#total_zakat").html();
+		var code_change1_z  = $("#code_change1").val() ;
+		var code_change2_z = $("#actif_total").val() ;
+		if (code_change2_z  != 0){
+	$.ajax({
+			type : 'POST',
+			url  : 'convertir_devise_zakat.php',
+			data : {typeAction_zakat:typeAction_zakat, montant_z:montant_z, code_change1_z:code_change1_z, code_change2_z:code_change2_z},
+			success: function(resultat){ 
+			$("#code_change1").val("");
+			//$("#total_zakat").html("");
+			$("#total_zakat").html(resultat);
+			},
+			error: function(xhr, ajaxOptions, thrownError){
+			} 
+			
+	}); 
+		}
+	}
+	function convertir_zakat_2  (id){
+		var typeAction_zakat 	  = "result_convertir_1";
+		var montant2 	  = $("#montant_zakat").html();
+		var code_change1_2  = $("#code_change1_2").val() ;
+		var code_change2_2 = $("#total_zakat_liste").val() ;
+		if (code_change2_2  != 0){
+		//var code_change2 = ; 
+	$.ajax({
+			type : 'POST',
+			url  : 'convertir_devise_zakat.php',
+			data : {typeAction_zakat:typeAction_zakat, montant2:montant2, code_change1_2:code_change1_2, code_change2_2:code_change2_2},
+			success: function(resultat){ 
+			$("#code_change1_2").val("");
+			//$("#total_zakat").html("");
+			$("#montant_zakat").html(resultat);
+			},
+			error: function(xhr, ajaxOptions, thrownError){
+			} 
+			
+	}); 
+		}
+	}
+	
+function get_formConv_result(){
+	
+	var montant 	  = $('#montant').val();
+	var conv_change1  = $('#conv_change1').val();
+	var conv_change2  = $('#conv_change2').val();
+	
+	var typeAction 	  = "result_convertir";
+	
+	$.ajax({
+			type : 'POST',
+			url  : 'convertir_devise.php',
+			data : {typeAction:typeAction, montant:montant, conv_change1:conv_change1, conv_change2:conv_change2},
+			success: function(data){ 
+				document.getElementById("retour_conv").value=data;
+			},
+			error: function(xhr, ajaxOptions, thrownError){
+			} 
+			
+	});
+}
+	
+	
+function get_formConv_select (code_change, val_ref, code_menu, code_ref){
+	
+	var typeAction = "select_devise";
+	$.ajax({
+			type : 'POST',
+			url  : 'convertir_devise.php',
+			data : {typeAction:typeAction, code_change:code_change, val_ref:val_ref, code_menu:code_menu, code_ref:code_ref},
+			success: function(data){ 
+				document.getElementById("blocDevise2").innerHTML=data;
+				$('form.frm').removeClass('jqtransformdone');
+				$('form.frm').jqTransform({imgPath:'jqtransformplugin/img/'});
+				
+				get_formConv_result();
+			},
+			error: function(xhr, ajaxOptions, thrownError){
+			} 
+			
+	});
+		
+}
+function check_mineur(){
+		$("#compte_tawfir_m, #compte_tawfir_p").change(function () {
+			 if($('#compte_tawfir_p').is(':checked')) {
+			$("#div_mineur").hide();
+			$("#table_mineur").hide();}
+			else if($('#compte_tawfir_m').is(':checked')) 
+		 {	$("#table_mineur").show();
+			$("#div_mineur").show();}
+			});
+		
+	}	
+function rinitialiser (){
+		
+	document.getElementById("form1").reset();
+	
+}
+	
+</script>
+<script type="text/javascript">
+		$(document).ready(function() {	
+			 $(".frm_contact").validationEngine();
+		    $("#frm_devenir_client_e0").validationEngine();
+			$("#frm_devenir_client_e1").validationEngine();
+			$("#frm_devenir_client_e2").validationEngine();
+			$("#frm_devenir_client_e4").validationEngine();
+			$("#frm_devenir_client_e2_edit").validationEngine();
+			$("#recherche").validationEngine();
+			/*$("#div_mineur").hide();
+			$("#table_mineur").hide();*/
+		});				
+</script>
+<script type="text/javascript" src="static/fr/datepicker/ui/ui.core.js"></script>
+<script type="text/javascript" src="static/fr/datepicker/ui/ui.datepicker.js"></script>
+<script type="text/javascript" language="javascript">
+	$(function() {
+		
+		$( "#date_naissance" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			defaultDate: "+1w",
+			minDate : null,
+			maxDate : "+0Y",
+			numberOfMonths: 1,
+			onClose: function( selectedDate ) {
+				$( "#date_naissance" ).validationEngine('hide');
+				
+     		}
+		});
+		$( "#date_delivre" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			defaultDate: "+1w",
+			minDate : null,
+			maxDate : "+0Y",
+			numberOfMonths: 1
+		});
+		$( "#date_expiration" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			defaultDate: "+1w",
+			minDate : "+1J",
+			numberOfMonths: 1
+		});
+		$( "#date_naiss_min" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			defaultDate: "+1w",
+			minDate : null,
+			maxDate : "+0Y",
+			numberOfMonths: 1
+		});
+			$( "#date_deliv" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			defaultDate: "+1w",
+			minDate : null,
+			maxDate : "+0Y",
+			numberOfMonths: 1,
+			onClose: function( selectedDate ) {
+				$( "#date_deliv" ).validationEngine('hide');
+				
+     		}
+		});
+			$( "#date_naissance_tuteur" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			defaultDate: "+1w",
+			minDate : "-18Y",
+			maxDate : "+0Y",
+			numberOfMonths: 1,
+			onClose: function( selectedDate ) {
+				$( "#date_naissance_tuteur" ).validationEngine('hide');
+				
+     		}
+		});		
+	});
+</script></head>
+<body>
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-66178794-1', 'auto');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+</script>
+ 
+<header>
+    <section class="top_menu">
+        <div class="wrapperRes">
+            <div class="wrapper">
+                <nav class="menu">
+                    <ul>
+                                                    <li><a href="accueil_46_311" title="Accueil"
+                                   target=""
+                                   class="">Accueil</a>
+                            </li>
+                                                        <li><a href="actualites-evenements_7_11" title="Actualités & Evénements"
+                                   target=""
+                                   class="">Actualités & Evénements</a>
+                            </li>
+                                                        <li><a href="documents-utiles_21_12" title="Documents utiles"
+                                   target=""
+                                   class="">Documents utiles</a>
+                            </li>
+                                                </ul>
+
+                </nav>
+                <nav class="langue">
+                    <label>Choix de langue :</label>
+                                            <ul>                            <li><a href="langue.php?langue=ar&amp;code=267&amp;refr=/Fr/presentation_11_267" title="عربي"
+                                   class="ar"><img
+                                    src="static/fr/image/gif/langue_ar.gif"
+                                    width="30" height="20" alt=""></a><span>العربية</span></a>
+                            </li>                            <li><a href="langue.php?langue=en&amp;code=267&amp;refr=/Fr/presentation_11_267" title="English"
+                                   class=""><img
+                                    src="static/fr/image/gif/langue_en.gif"
+                                    width="30" height="20" alt=""></a><span>English</span></a>
+                            </li></ul>
+                                        </nav>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+    <section class="section_logo">
+        <div class="wrapperRes">
+            <div class="wrapper">
+                <div class="opiton">
+                    <div class="Bl_compte">
+                        <span class="TXT">Accédez à votre compte :</span> <a href="#?"
+                                                                            class="link">Vous êtes</a>
+                        <ul>
+                            <li><a href="https://ebanking.bpm.mr/Connect/" target="_blank">Particuliers &amp; Professionnels</a>
+                            </li>
+                            <li><a href="https://ebanking.bpm.mr/Connect/Login?t=2"
+                                   target="_blank">Entreprises</a></li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <nav class="social_media"><a href="#?"><img src="static/fr/image/gif/facebook.gif" width="16"
+                                                                height="32" alt=""></a><span></span><a href="#?"><img
+                                src="static/fr/image/gif/twitter.gif" width="16" height="32" alt=""></a><span></span><a
+                            href="#?"><img src="static/fr/image/gif/linkedin.gif" width="16" height="32"
+                                           alt=""></a><span></span><a href="#?"><img
+                                src="static/fr/image/gif/google_plus.gif" width="16" height="32" alt=""></a></nav>
+                    <div class="search">
+                                                    <form action="recherche_56_59" method="get">
+                                <input name="q" id="q" type="text" class="input_search"
+                                       placeholder="Rechercher"
+                                       value=""/><input
+                                    name="" type="submit" value="" class="btn_search">
+
+                            </form>
+                            
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="logo"><a href="accueil_46_7" title="Banque Populaire de Mauritanie "><img
+                            src="static/fr/image/gif/banque_populaire_mauritanie.gif" width="289" height="81"
+                            alt="Banque Populaire de Mauritanie " title="Banque Populaire de Mauritanie "></a></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+    <section class="section_menu">
+    <div class="wrapper">
+      <nav class="main_menu">
+	  <div class="btn_menu_tablette">Menu</div>
+	  <ul><li><a href="accueil_46_7" class="" title="Accueil" target="">Accueil</a></li><li><a href="#?" class="active" title="À propos de la banque" target="">À propos de la banque</a><div class="sub_particulier ">
+								<div class="sub_particulier_in">
+									<ul class="list_subparticulier"><li>
+												<a href="#?" title="Banque populaire de Mauritanie" target="">Banque populaire de Mauritanie</a><ul><li><a href="mot-du-president_11_265"  title="Mot du président">Mot du président</a></li><li><a href="presentation_11_267"  title="Présentation">Présentation</a></li><li><a href="finance-islamique_11_292"  title="Finance islamique">Finance islamique</a></li></ul></li></ul>
+                              	<div class="clear"></div>
+                              </div>
+			  				</div></li><li><a href="#?" class="" title="Particuliers & Professionnels" target="">Particuliers & Professionnels</a><div class="sub_particulier ">
+								<div class="sub_particulier_in">
+									<ul class="list_subparticulier"><li>
+												<a href="#?" title="Espace Particuliers" target="">Espace Particuliers</a><ul><li><a href="comptes_11_313"  title="Comptes">Comptes</a></li><li><a href="financements_58_252"  title="Financements">Financements</a></li><li><a href="banque-a-distance_11_253"  title="Banque à distance">Banque à distance</a></li><li><a href="cartes-bancaires_58_269"  title="Cartes bancaires">Cartes bancaires</a></li></ul></li><li>
+												<a href="#?" title="Espace Professionnels" target="">Espace Professionnels</a><ul><li><a href="comptes_11_163"  title="Comptes">Comptes</a></li><li><a href="financements_58_173"  title="Financements">Financements</a></li><li><a href="banque-a-distance_11_270"  title="Banque à distance">Banque à distance</a></li><li><a href="cartes-bancaires_58_310"  title="Cartes bancaires">Cartes bancaires</a></li></ul></li></ul>
+                              	<div class="clear"></div>
+                              </div>
+			  				</div></li><li><a href="#?" class="" title="Entreprises" target="">Entreprises</a><div class="sub_particulier ">
+								<div class="sub_particulier_in">
+									<ul class="list_subparticulier"><li>
+												<a href="comptes-et-placements_58_43" title="Comptes et Placements" target="">Comptes et Placements</a><ul><li><a href="comptes-courants-en-mru-et-en-devises_11_94"  title=" Comptes courants en MRU et en devises"> Comptes courants en MRU et en devises</a></li><li><a href="hissab-istithmar-dat_11_95"  title=" Hissab Istithmar (DAT)"> Hissab Istithmar (DAT)</a></li><li><a href="compte-de-depot-participatif-cdp_11_318"  title="Compte de dépôt participatif (CDP)">Compte de dépôt participatif (CDP)</a></li></ul></li><li>
+												<a href="#?" title="Financements" target="">Financements</a><ul><li><a href="financement-d-investissement_11_274"  title=" Financement d'investissement"> Financement d'investissement</a></li><li><a href="financement-du-cycle-d-exploitation_11_275"  title=" Financement du cycle d'exploitation"> Financement du cycle d'exploitation</a></li><li><a href="engagement-par-signature_58_276"  title="Engagement par signature">Engagement par signature</a></li><li><a href="convention-entreprise_11_290"  title="Convention Entreprise">Convention Entreprise</a></li></ul></li><li>
+												<a href="#?" title=" Opérations à l'international" target=""> Opérations à l'international</a><ul><li><a href="operations-documentaires_11_288"  title=" Opérations documentaires"> Opérations documentaires</a></li><li><a href="garanties-bancaires_11_281"  title=" Garanties bancaires"> Garanties bancaires</a></li></ul></li><li>
+												<a href="banque-a-distance_11_273" title="Banque à distance" target="">Banque à distance</a></li></ul>
+                              	<div class="clear"></div>
+                              </div>
+			  				</div></li><li><a href="#?" class="" title="Leasing" target="">Leasing</a><div class="sub_particulier ">
+								<div class="sub_particulier_in">
+									<ul class="list_subparticulier"><li>
+												<a href="#?" title="DÉPARTEMENT LEASING" target="">DÉPARTEMENT LEASING</a><ul><li><a href="presentation_11_285"  title="Présentation">Présentation</a></li><li><a href="avantages-du-leasing_11_286"  title="Avantages du leasing">Avantages du leasing</a></li><li><a href="produits_11_287"  title=" Produits"> Produits</a></li></ul></li></ul>
+                              	<div class="clear"></div>
+                              </div>
+			  				</div></li></ul></nav>
+      <div class="clear"></div>
+    </div>
+  </section></header><section class="content">
+  <div class="contentin">
+    <div class="wrapper">
+                  <article class="article">
+        <div class="contenu">
+        
+        <div class="path">
+
+   <a href="accueil_46_7">Accueil </a>
+			 > <a href="#?"  title="À propos de la banque" >À propos de la banque</a>  > <a href="#?"  title="Banque populaire de Mauritanie" >Banque populaire de Mauritanie</a>  > <a href="presentation_11_267"  title="Présentation" >Présentation</a>          
+           </div>
+        <h1 class="titre_page">Présentation</h1>        
+        
+        	<div class="page_cms"> 
+<h2 class="titreH2">Qui sommes nous ?</h2>
+<div class="img"><img src="image.php?id=1433" alt="" /></div>
+<p>&nbsp;</p>
+<div style="text-align: justify;"><strong>La Banque Populaire de Mauritanie (BPM) </strong>est une banque cr&eacute;&eacute;e par extension de l&rsquo;agr&eacute;ment de la Mauritanie Leasing, du simple exercice des activit&eacute;s de leasing, &agrave; celui d&rsquo;une banque universelle.&nbsp;</div>
+<div style="text-align: justify;">Elle d&eacute;veloppe ainsi une activit&eacute; qui a d&eacute;but&eacute; en <strong>1998</strong> et qui a &eacute;t&eacute; pendant plus de quinze ans la seule activit&eacute; de leasing dans le pays, avec une part de march&eacute; de plus de <strong>23% de l&rsquo;ensemble des concours financiers &agrave; moyen et long terme</strong>.</div>
+<p style="text-align: justify;"><strong>La BPM, la banque islamique mauritanienne</strong><span>&nbsp;offre aux </span><strong>particuliers, professionnels et entreprises</strong><span> une gamme innovante de produits et services, en mati&egrave;re  de d&eacute;p&ocirc;t, de financement et d&rsquo;investissements participatifs.&nbsp;</span></p>
+<div style="text-align: justify;">En deux ans la banque a su b&acirc;tir un r&eacute;seau dense d&rsquo;agences couvrant la plupart des grandes villes du pays et comptant pr&egrave;s d&rsquo;une dizaine dans la seule ville de Nouakchott.</div>
+<p style="text-align: justify;"><strong>La BPM</strong><span> ambitionne de r&eacute;pondre aux besoins et attentes de sa client&egrave;le &laquo; </span><strong>Entreprises et Institutions</strong><span> &raquo; en offrant des services de qualit&eacute; irr&eacute;prochable et une large gamme de produits innovants et conformes aux principes de la </span><strong>Finance Islamique</strong><span>. Une agence entreprise a &eacute;t&eacute; sp&eacute;cialement d&eacute;di&eacute;e pour r&eacute;pondre aux besoins et attentes des entreprises et grandes Institutions.</span></p>
+<div class="bloc_ouvre" style="margin-bottom: 20px;">
+<div class="titre" style="text-align: justify;">Missions</div>
+<div class="desc" style="display: none;">
+<ul class="liste2">
+<li>Nous nous engageons fermement aux c&ocirc;t&eacute;s de nos clients pour les aider &agrave; transformer leurs projets en r&eacute;alit&eacute;.</li>
+<li>Satisfaire notre client&egrave;le en fournissant un service de qualit&eacute; de standard international.</li>
+<li>R&eacute;pondre aux besoins de notre client&egrave;le par des offres sur mesure comprenant  un large panel de services et de produits en conformit&eacute; avec les principes de la finance islamique.</li>
+<li>Participer activement &agrave; la modernisation  du secteur bancaire en Mauritanie.</li>
+<li>Contribuer au d&eacute;veloppement l&rsquo;Economie Nationale par l&rsquo;apport de financement de projets d&rsquo;investissement et des besoins li&eacute;s aubien-&ecirc;tre de notre client&egrave;le.</li>
+</ul>
+</div>
+</div>
+<div class="clear">&nbsp;</div>
+<div class="bloc_ouvre">
+<div class="titre">Valeurs</div>
+<div class="desc" style="display: none;">
+<p>La BPM,qui est la banque islamique populaire de Mauritanie, ambitionne de rester une banque de r&eacute;f&eacute;rence, et d&rsquo;&ecirc;tre au service de sa client&egrave;le et de ses partenaires.</p>
+<p>La culture de la Banque est fond&eacute;e sur quatre valeurs d&rsquo;entreprise :<br /> <strong>Engagement, Proactivit&eacute;, Cr&eacute;ativit&eacute; et Professionnalisme.</strong></p>
+<p style="text-align: center;"><img title="BPM-sch&eacute;ma-valeur-modif.jpg" src="image.php?id=1539" alt="BPM-sch&eacute;ma-valeur-modif.jpg" /></p>
+</div>
+</div>       
+      
+   
+
+          
+              
+              </div>
+              
+              <div class="bloc_retour bottom"> <div class="bloc_parta">
+                    <!-- AddThis Button BEGIN -->
+                    <div class="">
+                    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a><a class="addthis_button_tweet" tw:via="addthis"></a><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a></div>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51a8867819d2b063"></script>
+                    <!-- AddThis Button END -->
+            </div><div class="clear"></div></div>
+              
+              
+        
+        </div><div class="left">
+                    <div class="wrapper_boxesbot">
+            <div class="box_cour">
+                <p class="titre"><a title="Cours Devise BCM"
+                                    href="convertisseur-de-devise_64_103">Cours Devise BCM 11-04-2018</a>
+                </p>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th scope="col">Devise</th>
+                        <th scope="col">Achat</th>
+                        <th scope="col">Vente</th>
+                    </tr>                            <tr>
+                            <td>EUR</td>
+                            <td>43.5 </td>
+                            <td>43.94</td>
+                            </tr>                            <tr>
+                            <td>USD</td>
+                            <td>35.29 </td>
+                            <td>35.65</td>
+                            </tr>                            <tr>
+                            <td>CFA</td>
+                            <td>66 </td>
+                            <td>66.98</td>
+                            </tr></table>
+            </div>
+            </div>        <div class="wrapper_boxesbot">
+                  
+          <div class="box_distance">
+            <p class="titre">Votre banque à distance</p>
+            <div class="flexslider">
+  			<ul class="slides">
+            <li><a href="banque-a-distance_11_273" class="link_distance"> <img src="upload/1433505036.gif" width="57" height="57"  title="BPM ONLINE" alt="BPM ONLINE"> <span class="t1"><strong>BPM ONLINE</strong></span> <span class="t2">Entreprise</span></a><a href="banque-a-distance_11_253" class="link_distance"> <img src="upload/1433505038.gif" width="57" height="57"  title="BPM ONLINE" alt="BPM ONLINE"> <span class="t1"><strong>BPM ONLINE</strong></span> <span class="t2">Particulier & Professionnel</span></a></li> 
+			</ul></div>
+            <p><a href="#?" class="decouvrir">Découvrir</a></p>
+          </div>
+          
+                  </div>
+        <div class="wrapper_boxesbot">
+          <a href="reseau-deagences_59_83"  title="Nos agences et DAB" class="box_findagency"><span class="ic_agence"><img src="upload/1433502748.png" width="149" height="129" title="Nos agences et DAB" alt="Nos agences et DAB"></span>                    <span class="titre">Nos agences et <span>DAB</span></span>
+                    
+					<span class="desc">
+                    	Trouver votre agence Banque Populaire de Mauritanie la plus proche de vous                    </span>
+					<span class="trouver">Trouver</span>
+				  </a>        </div></div>
+        
+        <div class="clear"></div>
+      </article>
+    </div>
+    <footer>
+
+    <nav class="menu_footer">
+                    <ul>                    <li><a href="#?"                            class="">Carrière</a>
+                    </li>
+                                        <li><a href="faq_38_16"                            class="">FAQ</a>
+                    </li>
+                                        <li><a href="plan-du-site_57_21"                            class="">Plan du site</a>
+                    </li>
+                                        <li><a href="reseau-deagences_59_83"                            class="">Réseau d’agences </a>
+                    </li>
+                                </ul>
+                </nav>
+        <section class="bottom_footer">
+        <div class="info_footer">
+            <p>Avenue Charles De Gaulle, SOCOGIM TEVRAGH ZEINA</p>
+<p>Lot n&deg;100, BP : 3842 - Nouakchott Mauritanie.</p>
+<p>T&eacute;l. : 00 222 45 29 05 69 - Fax : 00 222 45 29 05 71</p>
+<p>E-mail : <a href="mailto: contact@bpm.mr">contact@bpm.mr</a></p></div>
+        <div class="bloc_bas_foot">
+                        <nav class="social_media"><a href="#?"><img src="static/fr/image/gif/facebook.gif" width="16" height="32"
+                                                        alt=""></a><span></span><a href="#?"><img
+                        src="static/fr/image/gif/twitter.gif" width="16" height="32" alt=""></a><span></span><a
+                    href="#?"><img src="static/fr/image/gif/linkedin.gif" width="16" height="32"
+                                   alt=""></a><span></span><a href="#?"><img src="static/fr/image/gif/google_plus.gif"
+                                                                             width="16" height="32" alt=""></a></nav>
+            <div class="clear"></div>
+            <div class="medianet">Développé par <a target="_blank" href="http://www.medianet.com.tn">media<span>net</span></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </section>
+</footer>  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,181 @@
+       *{
+           margin-left: 0px;
+           margin-right: 0px;
+       }
+       h1,h2,h3,h4,h5,{
+           color:#f5b325;
+       }
+       
+       body {
+            margin:0;
+            padding:0;
+            font-size: 18px;
+            font-family: 'Open Sans', sans-serif;
+      }
+
+        /*=======================
+            navbar section 
+        ========================*/
+		
+		nav {
+            background-color:rgb(43, 41, 41);
+            font-size: 16px;
+			color:#fcfcfc;
+            padding-bottom:20px;
+            padding-top: 20px;
+            margin-bottom: 80px; 
+        }
+
+        .navbar-brand{
+            font-size:30px;
+
+        }
+        .navigation ul img {
+             
+            margin-bottom: 5px
+        }
+
+       /*=======================
+            slide section 
+        ========================*/
+        .slide img {
+            height: 550px;
+            width: 100%;
+        }
+        
+        /*=======================
+            about section
+        ========================*/
+        .about{
+            background:  #e3e7ea;;
+            padding-top: 20px
+            
+        }
+        .about img{
+            width:472px;
+            height: 382px;
+        }
+        
+        .about h1 {
+            color: #f5b325;
+            font-size: 25px;
+        }
+    
+
+
+/*===============================
+    domain dintervantion
+  ===============================*/  
+  .domain-title {
+      padding-top:20px;
+      padding-bottom: 20px;
+  }
+  .domain-title h1 {
+      color: #f5b325;
+  }
+
+
+ /*======================
+     client section
+ ========================*/
+ #clients{
+    padding-top:20px;
+    padding-bottom: 20px;
+      background:  #d8d8dbfd;
+  }
+
+  #clients h1{
+      color:#f5b325;
+  }
+/*============================
+  bottom footer
+============================*/
+.up-footer {
+   
+    color: #f9f9f9;
+    background: #3d3d3d;
+    padding-bottom: 11px;
+    padding-top: 19px;
+}
+
+
+.up-footer .nos-solutions a {
+    text-decoration: none;
+    color :#f9f9f9;
+    font-size:16px;
+    line-height: 30px;
+    
+}
+.up-footer .nos-solutions a:hover {
+    color:#e2e2eb;  
+}
+
+.up-footer .Société a {
+    text-decoration: none;
+    color :#f9f9f9;
+    font-size:20px;
+    margin-bottom: 12px;
+  
+}
+.contact .contact-icon  {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.contact .contact-icon  i {
+    font-size: 30px;
+   
+}
+
+
+/*============================
+  bottom footer
+============================*/
+.bottom-foter{
+    background: #363636;
+    color:#f9f9f9;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.bottom-foter .sociale a {
+    float: right;
+    margin-right: 10px;
+}
+
+.bottom-foter .sociale .icons {
+    color:#f9f9f9; 
+
+    
+}
+.bottom-foter .sociale .icons:hover {
+    color:#e2e2eb;
+    
+    
+} 
+
+
+
+
+/*====================================  
+         notre cabinet page       
+  ====================================*/
+
+  .notre-cabinet-description{
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+  
+/*====================================  
+         notre equipe page       
+  ====================================*/
+
+  .notre-equipe-description{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.notre-equipe-description img{
+    width: 500px;
+    height: 500px;
+} 
